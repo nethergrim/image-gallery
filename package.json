@@ -1,0 +1,52 @@
+{
+  "name": "AE500pxProject",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "node-fetch": "^2.0.0",
+    "react": "^16.3.1",
+    "react-native": "^0.55.3",
+    "react-navigation": "1.5.11",
+    "react-redux": "5.0.7",
+    "redux": "4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "2.2.0"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-jsx": "5.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "2.6.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-react-native": "3.2.1",
+    "eslint-plugin-standard": "3.1.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": [
+      "<rootDir>/(node_modules)/(?!react-native|react-navigation|bugsnag-react-native)"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "setupFiles": [
+      "./config/jest/globalFetch.js"
+    ]
+  }
+}
