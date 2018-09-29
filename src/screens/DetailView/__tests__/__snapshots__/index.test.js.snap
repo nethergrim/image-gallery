@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#000",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      contentAspectRatio={undefined}
+      enableResistance={true}
+      enableScale={true}
+      enableTransform={false}
+      enableTranslate={true}
+      maxOverScrollDistance={20}
+      maxScale={1}
+      onLayout={[Function]}
+      onSingleTapConfirmed={undefined}
+      onTransformGestureReleased={undefined}
+      onViewTransformed={undefined}
+      style={
+        Object {
+          "flex": 1,
+          "height": 675,
+          "width": 675,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "transform": Array [
+              Object {
+                "scale": 1,
+              },
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "translateY": 0,
+              },
+            ],
+          }
+        }
+      >
+        <Image
+          capInsets={
+            Object {
+              "bottom": 0.1,
+              "left": 0.1,
+              "right": 0.1,
+              "top": 0.1,
+            }
+          }
+          enableScale={true}
+          enableTransform={true}
+          enableTranslate={true}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://drscdn.500px.org/photo/247377659/m%3D900_k%3D1_a%3D1/v2?client_application_id=27071&webp=true&sig=b5b4070666461be985e7890d9c3b26054ae52c8c882fe9b6120bb2c627b53204",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "height": 675,
+                "width": 675,
+              },
+              Object {
+                "backgroundColor": "transparent",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+    <ActivityIndicator
+      animating={false}
+      color="#FFF"
+      hidesWhenStopped={true}
+      size="large"
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
