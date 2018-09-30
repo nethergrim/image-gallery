@@ -3,6 +3,7 @@ import * as React from 'react'
 import DetailView from '../../screens/DetailView'
 import { connect } from 'react-redux'
 import { fetchPictureDetails, onPictureLoaded } from './actions'
+import Share from 'react-native-share';
 
 export interface Props {
   navigation: any,
@@ -37,7 +38,16 @@ class DetailViewContainer extends React.Component<Props, State> {
   }
 
   share = (imageId: string): void => {
-    // TODO: implement share function
+    const { navigation } = this.props
+    const { pictureDetails } = navigation.state.params
+
+    const shareOptions = {
+      title: 'Share via',
+      url: pictureDetails.links.html,
+    };
+    Share.open(shareOptions)
+      .then((res) => { console.log(res) })
+      .catch((err) => { err && console.log(err); });
   }
 
   applyFilter = (type): void => {
