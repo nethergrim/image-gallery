@@ -14,7 +14,7 @@ import styles from './styles'
 import { Props } from '../../containers/HomeContainer/index' // use same Props as Main Container
 
 
-const keyExtractor = (item, page) => item.id.toString()
+const keyExtractor = (item) => item.id.toString()
 
 class HomeView extends React.PureComponent<Props> {
   imageThumbnailStylePortrait = null
@@ -36,7 +36,7 @@ class HomeView extends React.PureComponent<Props> {
     })
   }
 
-  _openPicture(imageId: number): void {
+  _openPicture(imageId: String): void {
     const { pictures, navigation } = this.props
     navigation.navigate('DetailView', {
       pictureDetails: pictures.find(pic => pic.id === imageId)
@@ -55,9 +55,9 @@ class HomeView extends React.PureComponent<Props> {
   }
 
   _renderList() {
-    const { isLoading, page, pictures, onLoadNext, onRefresh } = this.props;
+    const { isLoading, pictures, onLoadNext, onRefresh } = this.props;
     if (this.props.isLoading && this.props.pictures.length == 0) {
-      return <ActivityIndicator/>
+      return <ActivityIndicator />
     }
     return <FlatList
       removeClippedSubviews
@@ -67,7 +67,7 @@ class HomeView extends React.PureComponent<Props> {
       onRefresh={onRefresh}
       numColumns={2}
       renderItem={this._renderPicture}
-      keyExtractor={(item) => keyExtractor(item, page)}
+      keyExtractor={(item) => keyExtractor(item)}
       onEndReached={onLoadNext}
       onEndThreshold={2}
     />

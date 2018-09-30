@@ -33,8 +33,10 @@ class HomeContainer extends React.Component<Props, State> {
   }
 
   onRefresh(): void {
-    this.props.pictures = [];
-    this.props.page = 1;
+    this.setState({
+      pictures: [],
+      page: 1
+    })
     this.props.fetchPictures(1)
   }
 

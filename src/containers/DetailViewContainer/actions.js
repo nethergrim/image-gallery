@@ -1,33 +1,42 @@
 // @flow
 
-import { getPictureDetails } from '../../services/500pxAPI'
+import { getPictureDetails } from '../../services/UnsplashApi'
 import { FETCH_FAILED } from '../HomeContainer/actions'
 import type { ActionWithPayload, ActionWithoutPayload } from '../../types/actions'
 
 export const PICTURE_DETAILS_FETCH_REQUESTED = 'PICTURE_DETAILS_FETCH_REQUESTED'
 export const PICTURE_DETAILS_FETCH_SUCCESS = 'PICTURE_DETAILS_FETCH_SUCCESS'
+export const PICTURE_DETAILS_FETCH_FAIL = 'PICTURE_DETAILS_FETCH_FAIL'
 
-export function pictureIsLoading (): ActionWithoutPayload {
+export function pictureIsLoading(): ActionWithoutPayload {
   return {
     type: PICTURE_DETAILS_FETCH_REQUESTED,
   }
 }
 
-export function fetchPictureSuccess (imageId: number, hiResImage: string): ActionWithPayload {
+export function fetchPictureSuccess(): ActionWithoutPayload {
   return {
-    // TODO: implement me
+    type: PICTURE_DETAILS_FETCH_SUCCESS,
   }
 }
 
-export function fetchPictureFailed (errorMessage: string): ActionWithPayload {
+export function fetchPictureFailed(errorMessage: string): ActionWithPayload {
   return {
-    // TODO: implement me
-
+    type: PICTURE_DETAILS_FETCH_FAIL,
+    payload: {
+      errorMessage: errorMessage
+    }
   }
 }
 
-export function fetchPictureDetails (imageId: number) {
+export function fetchPictureDetails(imageId: string) {
   return async dispatch => {
-    // TODO: implement me
+    dispatch(pictureIsLoading());
+  }
+}
+
+export function onPictureLoaded() {
+  return async dispatch => {
+    dispatch(fetchPictureSuccess());
   }
 }

@@ -2,12 +2,14 @@
 import * as React from 'react'
 import DetailView from '../../screens/DetailView'
 import { connect } from 'react-redux'
-import { fetchPictureDetails } from './actions'
+import { fetchPictureDetails, onPictureLoaded } from './actions'
 import { selectHiResImage } from './selectors'
 
 export interface Props {
   navigation: any,
   fetchPictureDetails: Function,
+  onPictureLoaded: Function,
+  picture: any,
   isLoading: boolean,
   hiResImage: Function,
 }
@@ -29,15 +31,13 @@ class DetailViewContainer extends React.Component<Props, State> {
     headerTintColor: '#FFF',
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { navigation, fetchPictureDetails } = this.props
     const { pictureDetails } = navigation.state.params
-    if (!this.props.hiResImage(pictureDetails.id)) {
-      fetchPictureDetails(pictureDetails.id)
-    }
+    fetchPictureDetails(pictureDetails.id)
   }
 
-  share = (imageId: number): void => {
+  share = (imageId: string): void => {
     // TODO: implement share function
   }
 
@@ -45,28 +45,34 @@ class DetailViewContainer extends React.Component<Props, State> {
     // TODO: implement apply image filter function
   }
 
-  render () {
+  imageLoaded = (type): void => {
+    console.log("image loaded");
+    
+    this.props.onPictureLoaded();
+  }
+
+  // TODO: load preview first
+  render() {
     const { pictureDetails } = this.props.navigation.state.params
-    const image = pictureDetails.image_url[0]
-    const { isLoading, hiResImage } = this.props
+    const { isLoading } = this.props
     return <DetailView
-      imageUrl={imageURL}
       pictureDetails={pictureDetails}
       shareCallback={this.share}
       isLoading={isLoading}
       applyFilterCallback={this.applyFilter}
+      imageLoadedCallback={this.imageLoaded}
     />
   }
 }
 
-function bindAction (dispatch) {
+function bindAction(dispatch) {
   return {
     fetchPictureDetails: imageId => dispatch(fetchPictureDetails(imageId)),
+    onPictureLoaded: () => dispatch(onPictureLoaded()),
   }
 }
 
 const mapStateToProps = state => ({
-  hiResImage: imageId => selectHiResImage(state, imageId),
   isLoading: state.detailViewReducer.isLoading,
 })
 

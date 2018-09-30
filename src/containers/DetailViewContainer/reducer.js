@@ -1,12 +1,24 @@
+import { PICTURE_DETAILS_FETCH_REQUESTED, PICTURE_DETAILS_FETCH_SUCCESS } from './actions';
+
 const initialState = {
-  hiResPictures: [],
   isLoading: false,
 }
 
 export default function (state: any = initialState, action: Object) {
   const payload = action.payload
-  // TODO: implement reducer
+  console.log(action.type);
+  
+  switch (action.type) {
+    case PICTURE_DETAILS_FETCH_REQUESTED:
+      return Object.assign({}, state, {
+        isLoading: true,
+      })
 
-
-  return state;
+    case PICTURE_DETAILS_FETCH_SUCCESS:
+      return Object.assign({}, state, {
+        isLoading: false,
+      })
+    default:
+      return state;
+  }
 }

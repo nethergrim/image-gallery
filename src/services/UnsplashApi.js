@@ -15,6 +15,6 @@ export async function getPictures(page: number = 1): Array<Object> {
   return result;
 }
 
-export async function getPictureDetails(id: number): Object {
+export async function getPictureDetails(id: string): Object {
   // TODO: implement with image_size = 4
 }
