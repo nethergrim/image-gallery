@@ -13,7 +13,7 @@ export default function (state: any = initialState, action: Object) {
   switch (action.type) {
     case PICTURES_FETCH_SUCCESS:
       return Object.assign({}, state, {
-        pictures: action.payload.pictures,
+        pictures:  state.pictures.concat(action.payload.pictures),
         isLoading: false,
         page: action.payload.page,
         errorMessage: ''

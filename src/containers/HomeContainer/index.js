@@ -33,11 +33,15 @@ class HomeContainer extends React.Component<Props, State> {
   }
 
   onRefresh (): void {
+    this.props.pictures = [];
+    this.props.page = 1;
     this.props.fetchPictures(1)
   }
 
   onLoadNext (): void {
-    // TODO: implement me
+    if (!this.props.isLoading){
+      this.props.fetchPictures(this.props.page + 1)
+    }
   }
 
   render () {
