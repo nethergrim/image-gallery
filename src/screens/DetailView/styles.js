@@ -12,6 +12,18 @@ const styles: any = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    color: '#fff',
+    marginRight: 20,
+    fontSize: 18,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 18,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
   imageStyle: {
     flex: 1,
     width: width * 0.9,
@@ -28,9 +40,10 @@ const styles: any = StyleSheet.create({
   detailView: {
     position: 'absolute',
     bottom: 10,
-    width: 120,
     right: 10,
     flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
   },
   detailViewImage: {
     width: 50,

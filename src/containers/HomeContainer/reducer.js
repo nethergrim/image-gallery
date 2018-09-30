@@ -12,6 +12,8 @@ export default function (state: any = initialState, action: Object) {
   const payload = action.payload
   switch (action.type) {
     case PICTURES_FETCH_SUCCESS:
+    console.log(payload);
+    
       return Object.assign({}, state, {
         pictures: state.pictures.concat(payload.pictures),
         isLoading: false,
