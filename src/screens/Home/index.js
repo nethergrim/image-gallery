@@ -13,6 +13,7 @@ import ListItem from './components/ListItem'
 import styles from './styles'
 import { Props } from '../../containers/HomeContainer/index' // use same Props as Main Container
 
+
 const keyExtractor = (item, page) => item.id.toString() + page
 
 class HomeView extends React.PureComponent<Props> {

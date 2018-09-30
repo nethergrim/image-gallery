@@ -6,4 +6,7 @@ const initialState = {
 export default function (state: any = initialState, action: Object) {
   const payload = action.payload
   // TODO: implement reducer
+
+
+  return state;
 }
