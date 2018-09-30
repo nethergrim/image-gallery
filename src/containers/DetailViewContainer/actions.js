@@ -1,7 +1,5 @@
 // @flow
 
-import { getPictureDetails } from '../../services/UnsplashApi'
-import { FETCH_FAILED } from '../HomeContainer/actions'
 import type { ActionWithPayload, ActionWithoutPayload } from '../../types/actions'
 
 export const PICTURE_DETAILS_FETCH_REQUESTED = 'PICTURE_DETAILS_FETCH_REQUESTED'
@@ -17,15 +15,6 @@ export function pictureIsLoading(): ActionWithoutPayload {
 export function fetchPictureSuccess(): ActionWithoutPayload {
   return {
     type: PICTURE_DETAILS_FETCH_SUCCESS,
-  }
-}
-
-export function fetchPictureFailed(errorMessage: string): ActionWithPayload {
-  return {
-    type: PICTURE_DETAILS_FETCH_FAIL,
-    payload: {
-      errorMessage: errorMessage
-    }
   }
 }
 

@@ -6,15 +6,11 @@ const unsplash = new Unsplash({
   callbackUrl: "unsplashed://home/home"
 });
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 20;
 
 export async function getPictures(page: number = 1): Array<Object> {
   const result = await unsplash.photos
     .listPhotos(page, PAGE_SIZE, "latest")
     .then(toJson);
   return result;
-}
-
-export async function getPictureDetails(id: string): Object {
-  // TODO: implement with image_size = 4
 }

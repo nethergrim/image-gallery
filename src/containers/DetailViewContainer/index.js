@@ -3,7 +3,6 @@ import * as React from 'react'
 import DetailView from '../../screens/DetailView'
 import { connect } from 'react-redux'
 import { fetchPictureDetails, onPictureLoaded } from './actions'
-import { selectHiResImage } from './selectors'
 
 export interface Props {
   navigation: any,
@@ -46,12 +45,9 @@ class DetailViewContainer extends React.Component<Props, State> {
   }
 
   imageLoaded = (type): void => {
-    console.log("image loaded");
-    
     this.props.onPictureLoaded();
   }
 
-  // TODO: load preview first
   render() {
     const { pictureDetails } = this.props.navigation.state.params
     const { isLoading } = this.props

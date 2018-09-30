@@ -1,4 +1,4 @@
-import { getPictures } from '../500pxAPI'
+import { getPictures } from '../UnsplashApi'
 
 test('the data should be an array of objects', async () => {
   expect.assertions(1)

@@ -5,9 +5,6 @@ const initialState = {
 }
 
 export default function (state: any = initialState, action: Object) {
-  const payload = action.payload
-  console.log(action.type);
-  
   switch (action.type) {
     case PICTURE_DETAILS_FETCH_REQUESTED:
       return Object.assign({}, state, {

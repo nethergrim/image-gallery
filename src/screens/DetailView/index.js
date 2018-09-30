@@ -20,8 +20,6 @@ type Props = {
   pictureDetails: Object,
 }
 
-// TODO: it would be great to see here loader, pinch to zoom here and pan
-
 class DetailView extends React.PureComponent<Props> {
 
   _renderImageOrLoader() {
