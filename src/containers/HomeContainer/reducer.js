@@ -10,7 +10,6 @@ const initialState = {
 
 export default function (state: any = initialState, action: Object) {
   const payload = action.payload
-  // TODO: implement reducer
   switch (action.type) {
     case PICTURES_FETCH_SUCCESS:
       return Object.assign({}, state, {

@@ -44,7 +44,7 @@ class HomeView extends React.PureComponent<Props> {
   }
 
   _renderPicture (item) {
-    const imageURL = item.item.image_url[0]
+    const imageURL = item.item.urls.small
     const imageId = item.item.id
     return <ListItem
       imageUrl={imageURL}

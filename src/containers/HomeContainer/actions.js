@@ -33,9 +33,16 @@ export function fetchListFailed (errorMessage: string): ActionWithPayload {
 export function fetchPictures (page: number = 1) {
   
   return async dispatch => {
-    // TODO: implement me
-
-    dispatch.dispatch()
-    const data = getPictures(page);
+    dispatch(listIsLoading());
+    try {
+      const data = await getPictures(page);
+      dispatch(fetchListSuccess(data, page))
+    } catch (error) {
+      console.log(error);
+      
+      dispatch(fetchListFailed(error.errorMessage))
+    }
+    
+    // TODO error case handling
   }
 }
