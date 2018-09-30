@@ -13,9 +13,9 @@ export default function (state: any = initialState, action: Object) {
   switch (action.type) {
     case PICTURES_FETCH_SUCCESS:
       return Object.assign({}, state, {
-        pictures:  state.pictures.concat(action.payload.pictures),
+        pictures: state.pictures.concat(payload.pictures),
         isLoading: false,
-        page: action.payload.page,
+        page: payload.page,
         errorMessage: ''
       })
     case FETCH_FAILED:
@@ -23,7 +23,7 @@ export default function (state: any = initialState, action: Object) {
         pictures: [],
         isLoading: false,
         page: 1,
-        errorMessage: action.payload.errorMessage
+        errorMessage: payload.errorMessage
       })
     case PICTURES_FETCH_REQUESTED:
       return Object.assign({}, state, {

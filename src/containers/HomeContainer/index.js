@@ -13,14 +13,14 @@ export interface Props {
   isLoading: boolean,
 }
 
-export interface State {}
+export interface State { }
 
 class HomeContainer extends React.Component<Props, State> {
   static navigationOptions = {
     header: null,
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
     StatusBar.setBarStyle('light-content')
     Platform.OS === 'android' && StatusBar.setBackgroundColor('#000')
@@ -28,30 +28,30 @@ class HomeContainer extends React.Component<Props, State> {
     this.onLoadNext = this.onLoadNext.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.onRefresh()
   }
 
-  onRefresh (): void {
+  onRefresh(): void {
     this.props.pictures = [];
     this.props.page = 1;
     this.props.fetchPictures(1)
   }
 
-  onLoadNext (): void {
-    if (!this.props.isLoading){
+  onLoadNext(): void {
+    if (!this.props.isLoading) {
       this.props.fetchPictures(this.props.page + 1)
     }
   }
 
-  render () {
+  render() {
     return <HomeView {...this.props}
       onRefresh={this.onRefresh}
       onLoadNext={this.onLoadNext} />
   }
 }
 
-function bindAction (dispatch) {
+function bindAction(dispatch) {
   return {
     fetchPictures: page => dispatch(fetchPictures(page)),
   }
