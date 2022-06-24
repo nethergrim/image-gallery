@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "node-fetch": "^2.0.0",
+    "node-fetch": "^2.6.7",
     "react": "^16.3.1",
     "react-native": "^0.55.3",
     "react-native-image-pan-zoom": "^2.1.10",
